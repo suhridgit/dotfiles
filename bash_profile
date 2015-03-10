@@ -36,6 +36,8 @@ alias o="gnome-open"
 alias ls='ls -lh --color'
 alias :w="echo You ain't using vim bromigo..."
 alias tw="ping facebook.com"
+alias gforcepull="git fetch --all; git reset --hard origin/master"
+alias make="make -j8 -l8"
 
 # For ZMQROS
 export ZMQROS_NS_HOST=localhost
@@ -43,6 +45,15 @@ export ZMQROS_NS_PORT=8000
 export ZMQROS_ROBOT_ID=wallarelvo
 export ZMQROS_ROOT=/home/wallarelvo/Projects/zeromq-ros
 
-# For ROS
+# For HTTPROS
+export HTTPROS_NS_HOST=localhost
+export HTTPROS_NS_PORT=8080
+export HTTPROS_ROBOT_NAME=wallarelvo
+
 source /opt/ros/indigo/setup.bash
-export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/home/wallarelvo/ros
+source /home/wallarelvo/Projects/catkin_ws/devel/setup.bash
+export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$HOME/ros
+
+if [[ ! $TERM =~ screen ]]; then
+    exec tmux
+fi
