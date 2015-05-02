@@ -16,12 +16,12 @@ set $mod Mod4
 
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 
-font pango: Ubuntu Mono 9
+font pango: Ubuntu Mono 10
 
 # The font above is very space-efficient, that is, it looks good, sharp and
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
-# chose a FreeType font, such as:
+# # chose a FreeType font, such as:
 # font pango:DejaVu Sans Mono 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -157,8 +157,8 @@ bar {
         status_command i3status -c /home/wallarelvo/.i3/status_config
 }
 
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
 bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '-5%'
 bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '+5%'
@@ -176,7 +176,11 @@ exec synclient HorizTwoFingerScroll=1
 
 bindsym Control+$mod+l workspace next
 bindsym Control+$mod+h workspace prev
+bindsym $mod+Shift+p exec "gnome-screenshot -a"
 
 exec --no-startup-id feh --bg-fill /home/wallarelvo/wallpaper.jpg
 
+# exec --no-startup-id gnome-sound-applet
+
 new_window none
+# exec xrandr --output DP1 --auto --above LVDS1

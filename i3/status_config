@@ -14,8 +14,9 @@ general {
 # order += "ipv6"
 order += "volume master"
 # order += "disk /"
-order += "run_watch DHCP"
+# order += "run_watch DHCP"
 # order += "run_watch VPN"
+order += "wireless wlan3"
 order += "wireless wlan0"
 # order += "ethernet eth0"
 order += "cpu_usage"
@@ -23,9 +24,14 @@ order += "battery 0"
 # order += "load"
 order += "tztime local"
 
+wireless wlan3 {
+        format_up = "WD: %essid (%quality)"
+        format_down = "WD: down"
+}
+
 wireless wlan0 {
-        format_up = "W: (%quality at %essid) %ip"
-        format_down = "W: down"
+        format_up = "WC: %essid (%quality)"
+        format_down = "WC: down"
 }
 
 volume master {
@@ -58,7 +64,7 @@ run_watch VPN {
 }
 
 tztime local {
-        format = "%d-%m-%Y %H:%M:%S"
+        format = "%d-%m-%Y %H:%M"
 }
 
 load {

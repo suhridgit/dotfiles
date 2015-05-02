@@ -127,7 +127,7 @@ function! HeaderSwitchMappings()
     nnoremap <F7> :vsplit<CR>:FSLeft<CR>
     nnoremap <F8> :FSHere<CR>
     nnoremap <F9> :vsplit<CR>:FSRight<CR>
-    nnoremap <F4> :split<CR>:FSHere<CR><CR>:resize -10<CR>
+    " nnoremap <F4> :split<CR>:FSHere<CR><CR>:resize -10<CR>
 endfunction
 
 function! EscapeCommonOperationTypos()
@@ -160,7 +160,7 @@ function! PlainText()
     set comments+=n:--,n:==,n:#,n:\
 
     " hardwrap shortcut keys
-    nnoremap <F1> :set formatoptions+=a<CR>
+    nnoremap <F4> :set formatoptions+=a<CR>
     nnoremap <F2> :set formatoptions-=a<CR>
 endfunction
 

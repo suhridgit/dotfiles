@@ -11,7 +11,7 @@ PS1="$UNAME:$DNAME`if [ $? = 0 ]; then echo -e ' \e[01;32m>'; else echo -e ' \e[
 
 export PATH=/usr/local/bin:/usr/local/share/python:/usr/local/go/bin:$PATH
 export GOPATH=$HOME/Projects/go-ws
-export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$HOME/Software
 
 alias bp="vim ~/.bash_profile; source ~/.bash_profile"
 alias rmd="rm -rf"
