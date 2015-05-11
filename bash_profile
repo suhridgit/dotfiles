@@ -45,4 +45,4 @@ export ZMQROS_ROOT=/home/wallarelvo/Projects/zeromq-ros
 
 # For ROS
 source /opt/ros/indigo/setup.bash
-export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/home/wallarelvo/ros
+# export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/home/wallarelvo/ros
