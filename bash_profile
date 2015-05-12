@@ -9,8 +9,8 @@ UNAME="\[\033[35m\]\t\[\033[m\]-\[\033[36m\]\u\[\033[m\]"
 DNAME="\[\033[33;1m\]\w\[\033[m\]"
 PS1="$UNAME:$DNAME`if [ $? = 0 ]; then echo -e ' \e[01;32m>'; else echo -e ' \e[01;31m> '; fi` \[\e[01;34m\]\[\e[00m\]"
 
-export PATH=/usr/local/bin:/usr/local/share/python:/usr/local/go/bin:$PATH
-export GOPATH=$HOME/Projects/go-ws
+# export PATH=/usr/local/bin:/usr/local/share/python:/usr/local/go/bin:$PATH
+# export GOPATH=$HOME/Projects/go-ws
 export PATH=$PATH:$HOME/Software
 
 alias bp="vim ~/.bash_profile; source ~/.bash_profile"
@@ -51,7 +51,7 @@ export HTTPROS_NS_PORT=8080
 export HTTPROS_ROBOT_NAME=wallarelvo
 
 source /opt/ros/indigo/setup.bash
-source /home/wallarelvo/Projects/catkin_ws/devel/setup.bash
+source $HOME/catkin_ws/devel/setup.bash
 export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$HOME/ros
 
 if [[ ! $TERM =~ screen ]]; then
