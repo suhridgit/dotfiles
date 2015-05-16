@@ -8,11 +8,12 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 UNAME="\[\033[35m\]\t\[\033[m\]-\[\033[36m\]\u\[\033[m\]"
 DNAME="\[\033[33;1m\]\w\[\033[m\]"
 PS1="$UNAME:$DNAME`if [ $? = 0 ]; then echo -e ' \e[01;32m>'; else echo -e ' \e[01;31m> '; fi` \[\e[01;34m\]\[\e[00m\]"
+export PATH=$PATH:$HOME/Software
 
 alias bp="vim ~/.bash_profile; source ~/.bash_profile"
 alias rmd="rm -rf"
 alias rmdir="rm -rf"
-alias sshschool="ssh aw204@aw204.host.cs.st-andrews.ac.uk"
+alias sshschool="ssh aw204@lyrane"
 alias sshbowtie="ssh root@bowtie.mobi"
 alias sshom="ssh root@oculometrics.com"
 alias b="cd .."
@@ -29,12 +30,28 @@ alias cl="clear"
 alias ls="ls -hl --color"
 alias login="ssh aw204.host.cs.st-andrews.ac.uk"
 alias make="make -j8 -l8"
-
 alias o="gnome-open"
-alias pj="~/Software/processing-2.2.1/processing-java"
-alias pr="~/Software/processing-2.2.1/processing"
+alias ls='ls -lh --color'
+alias :w="echo You ain't using vim bromigo..."
+alias tw="ping facebook.com"
+alias gforcepull="git fetch --all; git reset --hard origin/master"
+alias make="make -j8 -l8"
 
-PATH=$PATH:/cs/home/aw204/Software/savilerow-1.6.1
-PATH=$PATH:/cs/home/aw204/Software/minion-1.7/bin
-PATH=$PATH:/cs/home/aw204/Software/
-PATH=$PATH:/cs/home/aw204/bin
+# For ZMQROS
+export ZMQROS_NS_HOST=localhost
+export ZMQROS_NS_PORT=8000
+export ZMQROS_ROBOT_ID=wallarelvo
+export ZMQROS_ROOT=/home/wallarelvo/Projects/zeromq-ros
+
+# For HTTPROS
+export HTTPROS_NS_HOST=localhost
+export HTTPROS_NS_PORT=8080
+export HTTPROS_ROBOT_NAME=wallarelvo
+
+#source /opt/ros/indigo/setup.bash
+#source $HOME/catkin_ws/devel/setup.bash
+#export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$HOME/ros
+
+if [[ ! $TERM =~ screen ]]; then
+    exec tmux
+fi
