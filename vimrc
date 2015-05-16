@@ -127,7 +127,6 @@ function! HeaderSwitchMappings()
     nnoremap <F7> :vsplit<CR>:FSLeft<CR>
     nnoremap <F8> :FSHere<CR>
     nnoremap <F9> :vsplit<CR>:FSRight<CR>
-    nnoremap <F4> :split<CR>:FSHere<CR><CR>:resize -10<CR>
 endfunction
 
 function! EscapeCommonOperationTypos()
@@ -160,7 +159,7 @@ function! PlainText()
     set comments+=n:--,n:==,n:#,n:\
 
     " hardwrap shortcut keys
-    nnoremap <F1> :set formatoptions+=a<CR>
+    nnoremap <F4> :set formatoptions+=a<CR>
     nnoremap <F2> :set formatoptions-=a<CR>
 endfunction
 
@@ -205,6 +204,15 @@ endfunction
 
 function! Powerline()
     set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+    " Disable a 1 second delay when leaving insert mode
+    if ! has('gui_running')
+        set ttimeoutlen=10
+        augroup FastEscape
+            autocmd!
+            au InsertEnter * set timeoutlen=0
+            au InsertLeave * set timeoutlen=1000
+        augroup END
+    endif
 endfunction
 
 function! NerdTree()
