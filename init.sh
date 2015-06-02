@@ -30,7 +30,6 @@ ln -fs $PWD/tmux.conf $HOME/.tmux.conf
 ln -fs $PWD/inputrc $HOME/.inputrc
 ln -fs $PWD/i3/config $HOME/.i3/config
 ln -fs $PWD/i3/status_config $HOME/.i3/status_config
-ln -fs $PWD/xmobarrc $HOME/.xmobarrc
 
 # FONTS
 if [ $OS == "LINUX" ]; then
