@@ -7,7 +7,7 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 
 UNAME="\[\033[35m\]\t\[\033[m\]-\[\033[36m\]\u\[\033[m\]"
 DNAME="\[\033[33;1m\]\w\[\033[m\]"
-PS1="$UNAME:$DNAME`if [ $? = 0 ]; then echo -e ' \e[01;32m>'; else echo -e ' \e[01;31m> '; fi` \[\e[01;34m\]\[\e[00m\]"
+PS1="$UNAME:$DNAME\n\e[01;32m$ \e[00m\]"
 export PATH=$PATH:$HOME/Software
 
 alias bp="vim ~/.bash_profile; source ~/.bash_profile"
