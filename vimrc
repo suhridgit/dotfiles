@@ -42,6 +42,7 @@ function! EditorBehaviour()
     autocmd BufRead,BufNewFile *.md set filetype=markdown
     autocmd BufRead,BufNewFile *.pde set filetype=arduino
     autocmd BufRead,BufNewFile *.ino set filetype=arduino
+    au BufNewFile,BufRead *.cpp set syntax=cpp11
 
     " plain text mode
     autocmd FileType text,markdown call PlainText()
@@ -175,19 +176,13 @@ function! SyntasticOptions()
     let g:syntastic_enable_signs=1
     let g:syntastic_c_include_dirs=[
         \ 'include',
-        \ '../include',
-        \ '../dbg/include',
-        \ '../munit/include',
-        \ '../al/include',
-        \ '../dstruct/include',
-        \ '../evolve/include',
         \ '/usr/include',
         \ '/usr/local/include',
-        \ '/usr/local/CrossPack-AVR/avr/include'
     \ ]
 
     let g:syntastic_cpp_include_dirs=[
-        \ 'src'
+        \ 'src',
+        \ 'resources/dynamicvoronoi/src'
     \ ]
 
     " python specific settings
@@ -199,6 +194,8 @@ function! SyntasticOptions()
     let g:syntastic_error_symbol='E'
     let g:syntastic_style_error_symbol='SE'
     let g:syntastic_style_warning_symbol='SW'
+    " let g:syntastic_cpp_compiler = 'clang++'
+    let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
 endfunction
 
 

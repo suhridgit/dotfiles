@@ -152,9 +152,9 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        output eDP1
+        # output eDP1
         position top
-        status_command i3status -c /home/wallar/.i3/status_config
+        status_command i3status -c /home/wallarelvo/.i3/status_config
 }
 
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
@@ -165,6 +165,7 @@ bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ 
 bindsym XF86AudioMute exec /usr/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 bindsym $mod+i exec "google-chrome"
+bindsym $mod+Shift+i exec "google-chrome --app=http://google.com"
 
 bindsym $mod+Shift+o exec "i3lock -i /home/wallar/background.jpg"
 
@@ -178,9 +179,10 @@ bindsym Control+$mod+l workspace next
 bindsym Control+$mod+h workspace prev
 bindsym $mod+Shift+p exec "gnome-screenshot -a"
 
-exec --no-startup-id feh --bg-fill /home/wallar/background.jpg
-
+exec --no-startup-id feh --bg-fill /home/wallarelvo/background.jpg
 exec --no-startup-id gnome-sound-applet
+exec --no-startup-id gnome-settings-daemon
 
-new_window none
-# exec xrandr --output DP1 --auto --above LVDS1
+new_window normal
+hide_edge_borders vertical
+# exec xrandr --output DP2 --auto --left-of eDP1

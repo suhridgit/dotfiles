@@ -13,18 +13,11 @@ export PATH=$PATH:$HOME/Software
 alias bp="vim ~/.bash_profile; source ~/.bash_profile"
 alias rmd="rm -rf"
 alias rmdir="rm -rf"
-alias sshschool="ssh aw204@lyrane"
-alias sshbowtie="ssh root@bowtie.mobi"
-alias sshom="ssh root@oculometrics.com"
 alias b="cd .."
 alias l="ls"
 alias f="cd -"
 alias c="clear"
 alias src="source ~/.bash_profile"
-alias projects="cd ~/Documents/Projects"
-alias docs="cd ~/Documents"
-alias uni="cd ~/Documents/Uni"
-alias jh="cd ~/Documents/Uni/JH"
 alias ct="echo && cal && date && echo"
 alias cl="clear"
 alias ls="ls -hl --color"
@@ -32,25 +25,20 @@ alias login="ssh aw204.host.cs.st-andrews.ac.uk"
 alias make="make -j8 -l8"
 alias o="gnome-open"
 alias ls='ls -lh --color'
-alias :w="echo You ain't using vim bromigo..."
-alias tw="ping facebook.com"
+alias tw="ping google.com"
 alias gforcepull="git fetch --all; git reset --hard origin/master"
-alias make="make -j8 -l8"
 
-# For ZMQROS
-export ZMQROS_NS_HOST=localhost
-export ZMQROS_NS_PORT=8000
-export ZMQROS_ROBOT_ID=wallarelvo
-export ZMQROS_ROOT=/home/wallarelvo/Projects/zeromq-ros
-
-# For HTTPROS
-export HTTPROS_NS_HOST=localhost
-export HTTPROS_NS_PORT=8080
-export HTTPROS_ROBOT_NAME=wallarelvo
-
-#source /opt/ros/indigo/setup.bash
-#source $HOME/catkin_ws/devel/setup.bash
-#export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:$HOME/ros
+source /opt/ros/indigo/setup.bash
+source $HOME/Projects/catkin_ws/devel/setup.bash
+export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/opt/indigo/ros/include
+export CATKIN_WS=$HOME/Projects/catkin_ws
+export ROS_PACKAGE_PATH=$HOME/Projects/catkin_ws/src:$ROS_PACKAGE_PATH
+export odroid=192.168.20.200
+# export ROS_IP=192.168.20.155
+export ROS_IP=127.0.0.1
+# export ROS_MASTER_URI=http://192.168.20.142:11311
+export ROS_MASTER_URI=http://localhost:11311
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 if [[ ! $TERM =~ screen ]]; then
     exec tmux
