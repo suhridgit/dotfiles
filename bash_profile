@@ -29,11 +29,11 @@ alias tw="ping google.com"
 alias gforcepull="git fetch --all; git reset --hard origin/master"
 
 source /opt/ros/indigo/setup.bash
-source $HOME/Projects/catkin_ws/devel/setup.bash
+source $HOME/catkin_ws/devel/setup.bash
 export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/opt/indigo/ros/include
-export CATKIN_WS=$HOME/Projects/catkin_ws
-export ROS_PACKAGE_PATH=$HOME/Projects/catkin_ws/src:$ROS_PACKAGE_PATH
-export odroid=192.168.20.200
+export CATKIN_WS=$HOME/catkin_ws
+export ROS_PACKAGE_PATH=$HOME/catkin_ws/src:$ROS_PACKAGE_PATH
+# export odroid=192.168.20.200
 # export ROS_IP=192.168.20.155
 export ROS_IP=127.0.0.1
 # export ROS_MASTER_URI=http://192.168.20.142:11311
