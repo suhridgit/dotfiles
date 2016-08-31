@@ -113,7 +113,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
-if [[ ! $TERM =~ screen ]]; then
-    exec tmux -2
-fi
+# source .bash_profile
+
+# if [[ ! $TERM =~ screen ]]; then
+#     exec tmux -2
+# fi
 

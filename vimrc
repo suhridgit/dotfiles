@@ -196,6 +196,8 @@ function! SyntasticOptions()
     let g:syntastic_style_warning_symbol='SW'
     " let g:syntastic_cpp_compiler = 'clang++'
     let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+    let g:jedi#documentation_command = "D"
+    let g:jedi#popup_on_dot = 0
 endfunction
 
 

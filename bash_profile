@@ -1,14 +1,14 @@
 
-SHELL=/bin/bash
+export SHELL=/bin/zsh
 
-export CLICOLOR=1
+# export CLICOLOR=1
 
-export LSCOLORS=GxFxCxDxBxegedabagaced
+# export LSCOLORS=GxFxCxDxBxegedabagaced
 
-UNAME="\[\033[35m\]\t\[\033[m\]-\[\033[36m\]\u\[\033[m\]"
-DNAME="\[\033[33;1m\]\w\[\033[m\]"
-PS1="$UNAME:$DNAME\n\e[01;32m$ \e[00m\]"
-export PATH=$PATH:$HOME/Software
+# UNAME="\[\033[35m\]\t\[\033[m\]-\[\033[36m\]\u\[\033[m\]"
+# DNAME="\[\033[33;1m\]\w\[\033[m\]"
+# PS1="\\[$UNAME:$DNAME\n\e[01;32m$ \e[00m\]"
+export PATH=$PATH:$HOME/software
 
 alias bp="vim ~/.bash_profile; source ~/.bash_profile"
 alias rmd="rm -rf"
@@ -30,16 +30,20 @@ alias gforcepull="git fetch --all; git reset --hard origin/master"
 
 source /opt/ros/indigo/setup.bash
 source $HOME/catkin_ws/devel/setup.bash
-export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/opt/indigo/ros/include
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go_ws
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$HOME/software/julia-2e358ce975/bin
+# export CMAKE_PREFIX_PATH=$CMAKE_PREFIX_PATH:/opt/indigo/ros/include
 export CATKIN_WS=$HOME/catkin_ws
-export ROS_PACKAGE_PATH=$HOME/catkin_ws/src:$ROS_PACKAGE_PATH
+# export ROS_PACKAGE_PATH=$HOME/catkin_ws/src:$ROS_PACKAGE_PATH
 # export odroid=192.168.20.200
 # export ROS_IP=192.168.20.155
 export ROS_IP=127.0.0.1
 # export ROS_MASTER_URI=http://192.168.20.142:11311
 export ROS_MASTER_URI=http://localhost:11311
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-if [[ ! $TERM =~ screen ]]; then
-    exec tmux
-fi
+# if [[ ! $TERM =~ screen ]]; then
+#     exec tmux
+# fi

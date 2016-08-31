@@ -154,7 +154,7 @@ bindsym $mod+r mode "resize"
 bar {
         # output eDP1
         position top
-        status_command i3status -c /home/wallarelvo/.i3/status_config
+        status_command i3status -c /home/wallar/.i3/status_config
         font pango:dejavu sans 9
 }
 
@@ -180,10 +180,12 @@ bindsym Control+$mod+l workspace next
 bindsym Control+$mod+h workspace prev
 bindsym $mod+Shift+p exec "gnome-screenshot -a"
 
-exec --no-startup-id feh --bg-fill /home/wallarelvo/background.jpg
+exec --no-startup-id feh --bg-fill /home/wallar/background.jpg
 exec --no-startup-id gnome-sound-applet
 exec --no-startup-id gnome-settings-daemon
 
 new_window normal
 hide_edge_borders vertical
+
+assign [class=" "] 3
 # exec xrandr --output DP2 --auto --left-of eDP1

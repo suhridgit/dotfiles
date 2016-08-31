@@ -20,9 +20,12 @@ rm -f $HOME/.tmux.conf
 
 mkdir $HOME/.i3
 
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 # SYMLINKS
 echo "Created symlinks for the dotfiles"
 ln -fs $PWD/vim $HOME/.vim
+ln -fs $PWD/zshrc $HOME/.zshrc
 ln -fs $PWD/vimrc $HOME/.vimrc
 ln -fs $PWD/bash_profile $HOME/.bash_profile
 ln -fs $PWD/bashrc $HOME/.bashrc
