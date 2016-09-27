@@ -3,7 +3,7 @@ export ZSH=/home/wallar/.oh-my-zsh
 export ZSH_THEME="robbyrussell"
 export SHELL=zsh
 
-plugins=(git)
+plugins=(git, zsh-syntax-highlighting)
 
 # User configuration
 
@@ -11,7 +11,7 @@ export PATH="/home/wallar/catkin_ws/devel/bin:/opt/ros/indigo/bin:/opt/indigo/ro
 
 source $ZSH/oh-my-zsh.sh
 
-PROMPT="%{$fg_bold[magenta]%}(%*) %{$fg_bold[cyan]%}%n:%{$fg_bold[yellow]~%}
+PROMPT="%{$fg_bold[magenta]%}(%*) %{$fg_bold[cyan]%}%n:%{$fg_bold[yellow]%~%}
 %(?. %{$fg_bold[green]%}▶. %{$fg_bold[red]%}▶)%{$reset_color%} "
 
 
@@ -22,7 +22,7 @@ alias b="cd .."
 alias l="ls"
 alias f="cd -"
 alias c="clear"
-alias src="source ~/.bash_profile"
+alias src="source ~/.zshrc"
 alias ct="echo && cal && date && echo"
 alias cl="clear"
 alias ls="ls -hl --color"
@@ -32,6 +32,7 @@ alias o="gnome-open"
 alias ls='ls -lh --color'
 alias tw="ping google.com"
 alias gforcepull="git fetch --all; git reset --hard origin/master"
+alias sshgoogle='sudo gcloud compute --project "ps1-networks" ssh --zone "us-east1-b" "networks-instance"'
 
 source /opt/ros/indigo/setup.zsh
 source $HOME/catkin_ws/devel/setup.zsh
