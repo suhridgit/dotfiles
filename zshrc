@@ -1,4 +1,4 @@
-export ZSH=/home/wallar/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 export ZSH_THEME="robbyrussell"
 export SHELL=zsh
@@ -34,8 +34,8 @@ alias tw="ping google.com"
 alias gforcepull="git fetch --all; git reset --hard origin/master"
 alias sshgoogle='sudo gcloud compute --project "ps1-networks" ssh --zone "us-east1-b" "networks-instance"'
 
-source /opt/ros/indigo/setup.zsh
-source $HOME/catkin_ws/devel/setup.zsh
+#source /opt/ros/indigo/setup.zsh
+#source $HOME/catkin_ws/devel/setup.zsh
 export CATKIN_WS=$HOME/catkin_ws
 export ROS_IP=127.0.0.1
 export ROS_MASTER_URI=http://localhost:11311
