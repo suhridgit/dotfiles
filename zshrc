@@ -34,8 +34,16 @@ alias tw="ping google.com"
 alias gforcepull="git fetch --all; git reset --hard origin/master"
 alias sshgoogle='sudo gcloud compute --project "ps1-networks" ssh --zone "us-east1-b" "networks-instance"'
 
-#source /opt/ros/indigo/setup.zsh
-#source $HOME/catkin_ws/devel/setup.zsh
+export GUROBI_HOME=$HOME/software/gurobi652/linux64
+export PATH=$PATH:$GUROBI_HOME/bin:$HOME/software/julia-3c9d75391c/bin
+export PATH=$PATH:$HOME/software/VAL
+export PATH=$PATH:$HOME/software/downward
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$GUROBI_HOME/lib
+export GRB_LICENSE_FILE=/home/wallar/software/gurobi652/gurobi.lic
+export GUROBI_LIB_NAME=gurobi65
+
+source /opt/ros/indigo/setup.zsh
+source $HOME/catkin_ws/devel/setup.zsh
 export CATKIN_WS=$HOME/catkin_ws
 export ROS_IP=127.0.0.1
 export ROS_MASTER_URI=http://localhost:11311
