@@ -25,11 +25,10 @@ alias c="clear"
 alias src="source ~/.zshrc"
 alias ct="echo && cal && date && echo"
 alias cl="clear"
-alias ls="ls -hl --color"
+alias ls="ls -hl"
 alias login="ssh aw204.host.cs.st-andrews.ac.uk"
 alias make="make -j8 -l8"
 alias o="gnome-open"
-alias ls='ls -lh --color'
 alias tw="ping google.com"
 alias gforcepull="git fetch --all; git reset --hard origin/master"
 alias sshgoogle='sudo gcloud compute --project "ps1-networks" ssh --zone "us-east1-b" "networks-instance"'
@@ -42,8 +41,8 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$GUROBI_HOME/lib
 export GRB_LICENSE_FILE=/home/wallar/software/gurobi652/gurobi.lic
 export GUROBI_LIB_NAME=gurobi65
 
-source /opt/ros/indigo/setup.zsh
-source $HOME/catkin_ws/devel/setup.zsh
+# source /opt/ros/indigo/setup.zsh
+# source $HOME/catkin_ws/devel/setup.zsh
 export CATKIN_WS=$HOME/catkin_ws
 export ROS_IP=127.0.0.1
 export ROS_MASTER_URI=http://localhost:11311
