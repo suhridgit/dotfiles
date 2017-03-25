@@ -3,6 +3,9 @@ export ZSH=$HOME/.oh-my-zsh
 export ZSH_THEME="robbyrussell"
 export SHELL=zsh
 
+export CLICOLOR=1
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+
 plugins=(git, zsh-syntax-highlighting)
 
 # User configuration
