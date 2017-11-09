@@ -86,6 +86,7 @@ function! EditorBehaviour()
 
     " recognize files
     autocmd BufRead,BufNewFile *.md set filetype=markdown
+    autocmd BufRead,BufNewFile *.launch set filetype=xml
     autocmd BufRead,BufNewFile *.pde set filetype=arduino
     autocmd BufRead,BufNewFile *.ino set filetype=arduino
     au BufNewFile,BufRead *.cpp set syntax=cpp11
@@ -129,7 +130,7 @@ function! DefaultCodingStyle()
 
     " highlight red when code is over 80 columns
     augroup vimrc_autocmds
-        autocmd BufEnter * highlight OverLength ctermbg=darkgrey 
+        autocmd BufEnter * highlight OverLength ctermbg=darkgrey
         autocmd BufEnter * match OverLength /\%80v.*/
     augroup END
 endfunction
@@ -273,10 +274,6 @@ function! NerdTree()
     \ endif
 endfunction
 
-function! YouCompleteMe()
-    nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
-endfunction
-
 function! Taglist()
     let g:Tlist_WinWidth=50
     let g:Tlist_Use_Right_Window=1
@@ -303,7 +300,6 @@ call CommandModeKeyMappings()
 call DefaultCodingStyle()
 call NavImproved()
 call VimTabsKeyMappings()
-call VimSplitsKeyMappings()
 call HeaderSwitchMappings()
 call EscapeCommonOperationTypos()
 call GVimSpecific()
@@ -311,7 +307,47 @@ call GVimSpecific()
 " PLUGIN SETTINGS
 call Powerline()
 call SyntasticOptions()
-call YouCompleteMe()
+" call YouCompleteMe()
 call NerdTree()
 call Taglist()
 call PythonMode()
+
+let g:go_fmt_command = "goimports"
+let g:go_autodetect_gopath = 1
+let g:go_list_type = "quickfix"
+
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_generate_tags = 1
+let g:go_doc_keywordprg_enabled = 0
+
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+nnoremap <F5> :GoBuild<CR>
+call VimSplitsKeyMappings()
+nnoremap <S-k> :wincmd k<CR>
+autocmd VimResized * wincmd =
+
+function! Session()
+    " Save session on quitting Vim
+    if argc() == 0 && filereadable(".git/config")
+        autocmd VimLeave * NERDTreeClose
+        autocmd VimLeave * mksession! .git/session.vim
+    endif
+    " Restore session on starting Vim
+    if argc() == 0 && filereadable(".git/session.vim")
+        autocmd VimEnter * source .git/session.vim
+    endif
+    " autocmd VimEnter * NERDTree
+endfunction
+call Session()

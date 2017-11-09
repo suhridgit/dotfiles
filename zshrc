@@ -38,16 +38,32 @@ export GUROBI_HOME=$HOME/software/gurobi652/linux64
 export PATH=$PATH:$GUROBI_HOME/bin:$HOME/software/julia-3c9d75391c/bin
 export PATH=$PATH:$HOME/software/VAL
 export PATH=$PATH:$HOME/software/downward
+export PATH=$PATH:$HOME/mosek/8/tools/platform/linux64x86/bin
+export PATH=$PATH:/usr/local/cuda/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$GUROBI_HOME/lib
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 export GRB_LICENSE_FILE=/home/wallar/software/gurobi652/gurobi.lic
 export GUROBI_LIB_NAME=gurobi65
+export MOSEKLM_LICENSE_FILE=$HOME/mosek/mosek.lic
 
 source /opt/ros/indigo/setup.zsh
 source $HOME/catkin_ws/devel/setup.zsh
-export CATKIN_WS=$HOME/catkin_ws
+source $HOME/bebop_ws/devel/setup.zsh
+source $HOME/multi_car_ws/devel/setup.zsh
+export CATKIN_WS=$HOME/multi_car_ws
 export ROS_IP=127.0.0.1
 export ROS_MASTER_URI=http://localhost:11311
 export LC_CTYPE=en_US.UTF-8
+export WORKON_HOME=$HOME/envs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS="--no-site-packages"
+source /usr/local/bin/virtualenvwrapper.sh
+export CAR_FRAME_ID=car0
+
+export GOPATH=$HOME/projects/ridesharing_ws
+export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
 
 # if [[ ! $TERM =~ screen ]]; then
 #     exec tmux

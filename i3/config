@@ -161,13 +161,13 @@ bar {
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
-# bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '-5%'
-# bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '+5%'
-# bindsym XF86AudioMute exec /usr/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioLowerVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '-5%'
+bindsym XF86AudioRaiseVolume exec /usr/bin/pactl set-sink-volume @DEFAULT_SINK@ -- '+5%'
+bindsym XF86AudioMute exec /usr/bin/pactl set-sink-mute @DEFAULT_SINK@ toggle
 
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 1dB+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q set Master 1dB- unmute
-bindsym XF86AudioMute exec amixer -q set Master toggle
+# bindsym XF86AudioRaiseVolume exec amixer -q set Speaker 1dB+ unmute
+# bindsym XF86AudioLowerVolume exec amixer -q set Speaker 1dB- unmute
+# bindsym XF86AudioMute exec amixer -q set Speaker toggle
 
 bindsym $mod+i exec "google-chrome"
 bindsym $mod+Shift+i exec "google-chrome --app=http://google.com"
