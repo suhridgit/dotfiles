@@ -26,22 +26,24 @@ alias src="source ~/.zshrc"
 alias ct="echo && cal && date && echo"
 alias cl="clear"
 alias ls="ls -hl --color"
-alias login="ssh aw204.host.cs.st-andrews.ac.uk"
 alias make="make -j8 -l8"
 alias o="gnome-open"
 alias ls='ls -lh --color'
 alias tw="ping google.com"
 alias gforcepull="git fetch --all; git reset --hard origin/master"
 alias sshgoogle='sudo gcloud compute --project "ps1-networks" ssh --zone "us-east1-b" "networks-instance"'
+alias cdgo="cd /home/wallar/projects/go_ws/src/github.com/wallarelvo/ridesharing-server"
 
-export GUROBI_HOME=$HOME/software/gurobi652/linux64
-export PATH=$PATH:$GUROBI_HOME/bin:$HOME/software/julia-3c9d75391c/bin
-export PATH=$PATH:$HOME/mosek/8/tools/platform/linux64x86/bin
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$GUROBI_HOME/lib
+export GUROBI_ROOT=$HOME/software/gurobi652
+export GUROBI_HOME=$GUROBI_ROOT/linux64
+export PATH=$PATH:$GUROBI_HOME/bin
+export LD_LIBRARY_PATH=$GUROBI_HOME/lib
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
-export GRB_LICENSE_FILE=/home/wallar/software/gurobi652/gurobi.lic
+export GRB_LICENSE_FILE=$GUROBI_ROOT/gurobi.lic
 export GUROBI_LIB_NAME=gurobi65
+
 export MOSEKLM_LICENSE_FILE=$HOME/mosek/mosek.lic
+export PATH=$PATH:$HOME/mosek/8/tools/platform/linux64x86/bin
 
 # source /opt/ros/indigo/setup.zsh
 # source $HOME/catkin_ws/devel/setup.zsh
@@ -57,8 +59,9 @@ export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 export VIRTUALENVWRAPPER_VIRTUALENV_ARGS="--no-site-packages"
 export CAR_FRAME_ID=car0
 
-export GOPATH=$HOME/projects/ridesharing_ws
+export GOPATH=$HOME/projects/go_ws
 export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
+export XDG_CURRENT_DESKTOP=Unity
 
 # if [[ ! $TERM =~ screen ]]; then
 #     exec tmux

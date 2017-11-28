@@ -156,6 +156,7 @@ bar {
         position top
         status_command i3status -c /home/wallar/.i3/status_config
         font pango:dejavu sans 9
+        tray_output DP-2
 }
 
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
@@ -185,7 +186,7 @@ bindsym Control+$mod+h workspace prev
 bindsym $mod+Shift+p exec "gnome-screenshot -a"
 
 exec --no-startup-id feh --bg-fill /home/wallar/background.jpg
-# exec --no-startup-id gnome-sound-apple
+# exec --no-startup-id gnome-sound-applet
 exec --no-startup-id unity-settings-daemon
 
 new_window normal
@@ -195,6 +196,11 @@ workspace 1 output DP-4
 workspace 2 output DP-2
 workspace 3 output DVI-D-0
 
-assign [class=" "] 3
+# assign [class=" "] 3
 exec_always unset XDG_CURRENT_DESKTOP
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+#
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
 # exec xrandr --output DP2 --auto --left-of eDP1

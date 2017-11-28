@@ -14,7 +14,7 @@ general {
 # order += "ipv6"
 order += "volume master"
 order += "disk /"
-# order += "disk /media/wallar/storage"
+order += "disk /home/wallar/storage"
 # order += "run_watch DHCP"
 # order += "run_watch VPN"
 # order += "wireless wlan3"
@@ -76,6 +76,6 @@ disk "/" {
         format = "⛂ %avail"
 }
 
-disk "/media/wallar/storage" {
+disk "/home/wallar/storage" {
         format = "⛁ %avail"
 }

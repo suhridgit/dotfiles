@@ -2,34 +2,8 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" Plugin 'https://github.com/Valloric/YouCompleteMe.git'
-
-" The following are examples of different formats supported.
-" plugin on GitHub repo
-" Plugin 'tpope/vim-fugitive'
-" " plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" " Git plugin not hosted on GitHub
-" Plugin 'git://git.wincent.com/command-t.git'
-" " git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
-" " The sparkup vim script is in a subdirectory of this repo called vim.
-" " Pass the path to set the runtimepath properly.
-" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" " Install L9 and avoid a Naming conflict if you've already installed a
-" " different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
-
 " All of your Plugins must be added before the following line
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
 function! EditorAppearance()
     syntax on
@@ -275,9 +249,18 @@ function! PythonMode()
     let g:pymode_rope_completion = 0
 endfunction
 
-
-
-
+function! Session()
+    " Save session on quitting Vim
+    if argc() == 0 && filereadable(".git/config")
+        autocmd VimLeave * NERDTreeClose
+        autocmd VimLeave * mksession! .git/session.vim
+    endif
+    " Restore session on starting Vim
+    if argc() == 0 && filereadable(".git/session.vim")
+        autocmd VimEnter * source .git/session.vim
+    endif
+    " autocmd VimEnter * NERDTree
+endfunction
 
 " MAIN
 call Pathogen()
@@ -290,6 +273,7 @@ call VimTabsKeyMappings()
 call HeaderSwitchMappings()
 call EscapeCommonOperationTypos()
 call GVimSpecific()
+call Session()
 
 " PLUGIN SETTINGS
 call Powerline()
@@ -320,21 +304,8 @@ function! s:build_go_files()
   endif
 endfunction
 
-nnoremap <F5> :GoBuild<CR>
+autocmd FileType go nmap <F5> :<C-u>call <SID>build_go_files()<CR>
+
 call VimSplitsKeyMappings()
 nnoremap <S-k> :wincmd k<CR>
 autocmd VimResized * wincmd =
-
-function! Session()
-    " Save session on quitting Vim
-    if argc() == 0 && filereadable(".git/config")
-        autocmd VimLeave * NERDTreeClose
-        autocmd VimLeave * mksession! .git/session.vim
-    endif
-    " Restore session on starting Vim
-    if argc() == 0 && filereadable(".git/session.vim")
-        autocmd VimEnter * source .git/session.vim
-    endif
-    " autocmd VimEnter * NERDTree
-endfunction
-call Session()
