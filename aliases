@@ -1,0 +1,26 @@
+#! /bin/bash
+
+# Updating config files
+alias bp="vim ~/.zshrc; source ~/.zshrc"
+alias ba="vim ~/.aliases; source ~/.zshrc"
+alias vimrc="vim ~/.vimrc"
+alias src="source ~/.zshrc"
+
+# File management
+alias rmd="rm -rf"
+alias rmdir="rm -rf"
+alias b="cd .."
+alias f="cd -"
+alias l="ls"
+alias ls="ls -hl --color"
+
+# Convenience
+alias c="clear"
+alias ct="echo && cal && date && echo"
+alias cl="clear"
+alias make="make -j36 -l36"
+alias o="gnome-open"
+alias tw="ping google.com"
+alias gforcepull="git fetch --all; git reset --hard origin/master"
+alias sshold="ssh wallar@wallarelvo-tower.csail.mit.edu"
+alias cdgo="cd /home/wallar/projects/go_ws/src/github.com/wallarelvo/ridesharing-server"

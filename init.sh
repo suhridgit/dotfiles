@@ -12,6 +12,7 @@ esac
 # REMOVE OLD DOTFILES
 echo "Removed old dotfiles"
 rm -rf $HOME/.vim
+rm -f $HOME/.aliases
 rm -f $HOME/.vimrc
 rm -rf $HOME/.i3
 rm -f $HOME/.bash_profile
@@ -27,6 +28,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 echo "Created symlinks for the dotfiles"
 ln -fs $PWD/vim $HOME/.vim
 ln -fs $PWD/zshrc $HOME/.zshrc
+ln -fs $PWD/aliases $HOME/.aliases
 ln -fs $PWD/vimrc $HOME/.vimrc
 ln -fs $PWD/bash_profile $HOME/.bash_profile
 ln -fs $PWD/bashrc $HOME/.bashrc
