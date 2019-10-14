@@ -119,3 +119,6 @@ fi
 #     exec tmux -2
 # fi
 
+
+# added by travis gem
+[ -f /Users/wallar/.travis/travis.sh ] && source /Users/wallar/.travis/travis.sh

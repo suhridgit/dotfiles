@@ -88,6 +88,7 @@ function! EditorBehaviour()
     autocmd BufRead,BufNewFile *.md set filetype=markdown
     autocmd BufRead,BufNewFile *.pde set filetype=arduino
     autocmd BufRead,BufNewFile *.ino set filetype=arduino
+    autocmd BufRead,BufNewFile *.tex set filetype=tex
     au BufNewFile,BufRead *.cpp set syntax=cpp11
 
     " plain text mode
@@ -234,6 +235,7 @@ function! SyntasticOptions()
     " python specific settings
     let g:syntastic_python_checkers=['flake8']
     " let g:syntastic_ignore_files = ['\.py$']
+    let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
 
     " warning and error symbols
     let g:syntastic_warning_symbol='W'
@@ -315,3 +317,33 @@ call YouCompleteMe()
 call NerdTree()
 call Taglist()
 call PythonMode()
+
+let g:go_fmt_command = "goimports"
+let g:go_autodetect_gopath = 1
+let g:go_list_type = "quickfix"
+
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_generate_tags = 1
+let g:go_doc_keywordprg_enabled = 0
+
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+autocmd FileType go nmap <F5> :<C-u>call <SID>build_go_files()<CR>
+
+call VimSplitsKeyMappings()
+nnoremap <S-k> :wincmd k<CR>
+autocmd VimResized * wincmd =
+
+set visualbell
+set noerrorbells

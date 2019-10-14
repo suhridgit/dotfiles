@@ -31,7 +31,7 @@ alias gforcepull="git fetch --all; git reset --hard origin/master"
 source /opt/ros/indigo/setup.bash
 source $HOME/catkin_ws/devel/setup.bash
 export GOROOT=/usr/local/go
-export GOPATH=$HOME/go_ws
+export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/software/julia-2e358ce975/bin
