@@ -6,7 +6,7 @@ export SHELL=zsh
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
-plugins=(git, zsh-syntax-highlighting, k, git-prompt)
+plugins=(git zsh-syntax-highlighting k git-prompt)
 
 # User configuration
 
