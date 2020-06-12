@@ -47,3 +47,5 @@ export ROS_MASTER_URI=http://localhost:11311
 # if [[ ! $TERM =~ screen ]]; then
 #     exec tmux
 # fi
+
+export PATH="$HOME/.cargo/bin:$PATH"
